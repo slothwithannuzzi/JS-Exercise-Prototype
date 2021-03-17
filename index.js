@@ -107,10 +107,10 @@ function Airplane(name) {
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Window/global object binding refers to the function itself
+    2. implicit binding, this refers to parameters given by object
+    3.  new binding, this revers to the constructor function
+    4. explicit binding means that this is defined by the .call and .apply parameters
   */
   
   
