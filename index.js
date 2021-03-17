@@ -39,12 +39,26 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(attributes) {
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.stomach = [];
+    this.eat = function(someFood){
+      if (this.stomach.length <= 10) {
+        this.stomach.push(someFood)
+      }
+    }
+    this.poop = function() {
+      for (let i = this.stomach.length; i > 0; i--) {
+        this.stomach.pop();
+      }
+    }
+    this.toString = function() {
+      return this.name + ", " + this.age
+    }
   }
- 
- 
 
+  const mary = Person({name: "Mary", age: 50});
   
   
   
@@ -63,8 +77,14 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(attributes) {
+    this.model = attributes.model;
+    this.milesPerGallon = attributes.milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+    this.fill = function(gallons) {
+      this.tank += gallons;
+    }
   }
   
   
@@ -75,18 +95,22 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(babyAttributes) {
+   Person.call(this, babyAttributes);
+   this.favoriteToy = babyAttributes.favoriteToy;
+   this.play = function() {
+     return `Playing with ${this.favoriteToy}`
+   }   
   }
  
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Window/global object binding refers to the function itself
+    2. implicit binding, this refers to parameters given by object
+    3.  new binding, this revers to the constructor function
+    4. explicit binding means that this is defined by the .call and .apply parameters
   */
   
   
