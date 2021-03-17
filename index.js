@@ -43,39 +43,22 @@ function Airplane(name) {
     this.name = attributes.name;
     this.age = attributes.age;
     this.stomach = [];
-    // this.eat = function(someFood){
-    //   if (this.stomach.length <= 10) {
-    //     this.stomach.push(someFood)
-    //   }
-    // }
-    // this.poop = function() {
-    //   for (let i = this.stomach.length; i > 0; i--) {
-    //     this.stomach.pop();
-    //   }
-    // }
-    this.toString = function() {
-      return `${this.name}, ${this.age}`
-    }
-  }
-
-Person.prototype.eat = function() {
-        if (this.stomach.length <= 10) {
+    this.eat = function(someFood){
+      if (this.stomach.length <= 10) {
         this.stomach.push(someFood)
       }
-}
-
-Person.prototype.poop = function() {
-    for (let i = this.stomach.length; i > 0; i--) {
-      this.stomach.pop();
+    }
+    this.poop = function() {
+      for (let i = this.stomach.length; i > 0; i--) {
+        this.stomach.pop();
+      }
+    }
+    this.toString = function() {
+      return this.name + ", " + this.age
     }
   }
 
-Person.prototype.toString = function() {
-  return `${this.name}, ${this.age}`
-}
- 
- 
-
+  const mary = Person({name: "Mary", age: 50});
   
   
   
@@ -94,7 +77,7 @@ Person.prototype.toString = function() {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
+ function Car(attributes) {
     
   }
   
